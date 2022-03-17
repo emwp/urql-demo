@@ -1,0 +1,26 @@
+overwrite: true
+schema: "https://countries.trevorblades.com/graphql"
+documents: "src/**/*.graphql"
+generates:
+  src/generated/graphql.tsx:
+    plugins:
+      - typescript
+      - typescript-urql
+      - typescript-operations
+      - add:
+          content: |
+            // ⚠️⚠️⚠️⚠️ DO NOT EDIT ⚠️⚠️⚠️⚠️
+            // This file was automatically generated, run yarn gen:gql to update it
+            /* eslint-disable */
+    config:
+      withHooks: true
+      withHOC: false
+      withComponent: false
+      dedupeOperationSuffix: true
+      preResolveTypes: true
+      addDocBlocks: false
+      pureMagicComment: true
+      useTypeImports: true
+      namingConvention: keep
+      maybeValue: T
+      gqlImport: 'urql#gql'
